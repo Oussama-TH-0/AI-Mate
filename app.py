@@ -15,9 +15,7 @@ import traceback
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-from kaggle_secrets import UserSecretsClient
-user_secrets = UserSecretsClient()
-GOOGLE_API_KEY = user_secrets.get_secret("gog")
+GOOGLE_API_KEY = os.getenv("gem_api")
 
 try:
     llm = ChatGoogleGenerativeAI(
